@@ -1,12 +1,13 @@
 import React from 'react';
 import { Navbar, Container, Row, Col } from 'react-bootstrap';
+import { AppProps } from 'next/app';
 import Head from 'next/head';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
 import '../styles/globals.css';
 import {APP_NAME} from "../config/consts";
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps }: AppProps) {
     return (
         <div>
             {/* Head for setting up meta tags, title */}
