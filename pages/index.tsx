@@ -1,8 +1,9 @@
 import React, {FunctionComponent, useEffect, useState} from "react";
-import axios from 'axios';
+import axios, {AxiosResponse} from 'axios';
 import {API_KEY, BASE_DATA_URL} from "../config/consts";
 import MovieList from "../components/movie/MovieList";
 import {Movie, SortField, SortOrder} from "../@types/movie";
+import {MovieApiResponse} from "../@types/api";
 
 type HomeProps = {
     movies: Movie[];
@@ -66,7 +67,7 @@ export const getServerSideProps = async () => {
     const totalPages = 25; // for 500 movies
 
     for (let page = 1; page <= totalPages; page++) {
-        const response = await axios.get(BASE_DATA_URL, {
+        const response: AxiosResponse<MovieApiResponse> = await axios.get(BASE_DATA_URL, {
             params: {
                 api_key: API_KEY,
                 language: 'en-US',
