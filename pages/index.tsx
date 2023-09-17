@@ -9,7 +9,7 @@ type HomeProps = {
 };
 
 const Home: FunctionComponent<HomeProps> = ({ movies }) => {
-    const [favorites, setFavorites] = useState([]);
+    const [favorites, setFavorites] = useState<number[]>([]);
 
     const [sortedData, setSortedData] = useState<Movie[]>(movies);
     const [sortOrder, setSortOrder] = useState<SortOrder>('asc');
@@ -37,16 +37,19 @@ const Home: FunctionComponent<HomeProps> = ({ movies }) => {
         setFavorites(favoritesFromMemory);
     }, []);
 
-    const toggleFavorite = (id: number) => {
+    const getNewFavorites = (id: number) => {
         if (favorites.includes(id)) {
-            const newFavorites = favorites.filter(favId => favId !== id);
-            setFavorites(newFavorites);
-            localStorage.setItem('favorites', JSON.stringify(newFavorites));
+            return favorites.filter(favId => favId !== id);
         } else {
-            const newFavorites = [...favorites, id];
-            setFavorites(newFavorites)
-            localStorage.setItem('favorites', JSON.stringify(newFavorites));
+            return [...favorites, id];
         }
+    };
+
+    const toggleFavorite = (id: number) => {
+        const newFavorites = getNewFavorites(id);
+
+        setFavorites(newFavorites)
+        localStorage.setItem('favorites', JSON.stringify(newFavorites));
     }
 
     return (
