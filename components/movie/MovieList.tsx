@@ -49,7 +49,7 @@ const MovieList: FunctionComponent<MovieListProps> = ({
                 <td>{movie.title}</td>
                 <td>{movie.vote_average}</td>
                 <td>{movie.release_date}</td>
-                <td><i onClick={() => toggleFavorite(movie.id)} className={`fa fa-star`} role="favorite"/></td>
+                <td><i onClick={() => toggleFavorite(movie.id)} className={`fa fa-star`} role="button"/></td>
             </tr>
         ))}
         </tbody>

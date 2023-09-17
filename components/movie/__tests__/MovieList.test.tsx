@@ -79,10 +79,10 @@ describe("<MovieList />", () => {
         );
 
         const rows = getAllByRole("row");
-        fireEvent.click(within(rows[1]).getByRole("favorite")); // Use the star icon for clicking
+        fireEvent.click(within(rows[1]).getByRole("button")); // Use the star icon for clicking
         expect(mockToggleFavorite).toHaveBeenCalledWith(1);
 
-        fireEvent.click(within(rows[2]).getByRole("favorite")); // Use the star icon for clicking
+        fireEvent.click(within(rows[2]).getByRole("button")); // Use the star icon for clicking
         expect(mockToggleFavorite).toHaveBeenCalledWith(2);
     });
 });
