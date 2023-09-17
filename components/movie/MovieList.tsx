@@ -43,7 +43,7 @@ const MovieList: FunctionComponent<MovieListProps> = ({
         <tbody>
         {movies?.map((movie) => (
             <tr key={movie.id}
-                className={favorites?.includes(movie.id) ? "bg-info" : null}>
+                className={favorites?.includes(movie.id) ? "bg-info" : undefined}>
                 <td><Image src={`${BASE_IMAGE_URL}${movie.poster_path}`} height={75} width={50} alt={movie.title}/>
                 </td>
                 <td>{movie.title}</td>
