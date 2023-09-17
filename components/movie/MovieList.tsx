@@ -25,15 +25,15 @@ const MovieList: FunctionComponent<MovieListProps> = ({
         <thead>
         <tr>
             <th></th>
-            <th onClick={() => onSortChange('title')}>
+            <th onClick={() => onSortChange('title')} role="button">
                 Title {sortedField === "title" && (sortOrder === "asc" ? <i className="fa fa-sort-up"/> :
                 <i className="fa fa-sort-down"/>)}
             </th>
-            <th onClick={() => onSortChange('vote_average')}>
+            <th onClick={() => onSortChange('vote_average')} role="button">
                 Rating {sortedField === "vote_average" && (sortOrder === "asc" ?
                 <i className="fa fa-sort-up"/> : <i className="fa fa-sort-down"/>)}
             </th>
-            <th onClick={() => onSortChange('release_date')}>
+            <th onClick={() => onSortChange('release_date')} role="button">
                 Release {sortedField === "release_date" && (sortOrder === "asc" ?
                 <i className="fa fa-sort-up"/> : <i className="fa fa-sort-down"/>)}
             </th>
